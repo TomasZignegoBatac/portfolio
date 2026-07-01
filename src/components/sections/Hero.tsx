@@ -12,7 +12,7 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div
         aria-hidden
-        className="bg-accent/10 pointer-events-none absolute inset-x-0 top-0 -z-10 h-[420px] rounded-full blur-3xl"
+        className="bg-accent/25 pointer-events-none absolute -top-40 -right-40 -z-10 size-[560px] rounded-full blur-3xl"
       />
 
       <div className="mx-auto flex min-h-[85svh] max-w-5xl flex-col justify-center px-4 py-24 sm:px-6">
