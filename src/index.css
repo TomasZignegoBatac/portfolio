@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+/* Dark mode por clase (.dark en <html>) en vez de solo prefers-color-scheme,
+   para poder ofrecer un toggle manual controlado por el usuario. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Solo los subsets latin y latin-ext de Inter Variable (el sitio es ES/EN):
+   @fontsource-variable/inter trae 7 subsets por defecto (cirílico, griego, vietnamita...)
+   que el navegador nunca llega a pedir, pero igual quedan en el bundle. */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('./assets/fonts/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('./assets/fonts/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-subtle: #f4f3f1;
+  --fg: #17130f;
+  --fg-muted: #55524c;
+  --border: #e4e1db;
+  --accent: #14315c;
+  --accent-fg: #ffffff;
+  --accent-hover: #1d477f;
+}
+
+.dark {
+  --bg: #0a0908;
+  --bg-subtle: #16130f;
+  --fg: #f2efea;
+  --fg-muted: #a8a29a;
+  --border: #2a2620;
+  --accent: #6e9bd6;
+  --accent-fg: #0a0908;
+  --accent-hover: #8ab0de;
+}
+
+/* Tokens semánticos expuestos como utilidades de Tailwind (bg-bg, text-fg, etc.),
+   resueltos en runtime desde las variables de arriba según el modo claro/oscuro. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-hover: var(--accent-hover);
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-fg font-sans antialiased;
+}
