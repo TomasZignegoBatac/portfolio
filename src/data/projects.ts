@@ -29,8 +29,8 @@ export const projects: Project[] = [
   {
     id: 'os',
     title: {
-      es: 'Sistema Operativo sobre Linux',
-      en: 'Operating System on Linux',
+      es: 'Desarrollo de SO basado en Linux',
+      en: 'Linux-Based OS Development',
     },
     description: {
       es: 'Trabajo práctico integrador de la facultad: un sistema operativo funcional desarrollado en C sobre Linux, versionado de forma colaborativa en equipo con Git.',

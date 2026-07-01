@@ -19,14 +19,16 @@ export function About() {
         <div className="mt-10 grid gap-10 md:grid-cols-[220px_1fr] md:gap-12">
           <div className="relative mx-auto w-48 md:mx-0 md:w-full">
             <div aria-hidden className="border-accent absolute -inset-3 rounded-2xl border-2" />
-            <img
-              src={profilePhoto}
-              alt={t.about.photoAlt}
-              width={400}
-              height={400}
-              loading="lazy"
-              className="relative aspect-square w-full rounded-2xl object-cover"
-            />
+            <div className="bg-bg-subtle relative aspect-square w-full rounded-2xl p-3">
+              <img
+                src={profilePhoto}
+                alt={t.about.photoAlt}
+                width={400}
+                height={400}
+                loading="lazy"
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </div>
           </div>
 
           <div>
