@@ -33,7 +33,18 @@ export interface Dictionary {
   projects: {
     eyebrow: string
     title: string
-    viewCode: string
+    viewDetails: string
+    close: string
+    problem: string
+    role: string
+    architecture: string
+    challenges: string
+    decisions: string
+    learnings: string
+    runDemo: string
+    demoTitle: string
+    consoleDemoTitle: string
+    diagramTitle: string
   }
   experience: {
     eyebrow: string
@@ -87,7 +98,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     hero: {
       role: 'Desarrollador Backend / Full Stack',
       pitch:
-        'Estudiante avanzado de Ingeniería en Sistemas de la Información (UTN-FRBA), en búsqueda de mi primera oportunidad como desarrollador. Me apasiona resolver problemas complejos con código limpio y bien pensado.',
+        'Estudiante avanzado de Ingeniería en Sistemas de la Información (UTN-FRBA), enfocado en desarrollo backend con Java/Spring Boot y Node.js. Busco mi primera oportunidad como desarrollador Backend o Full Stack, con ganas de seguir resolviendo problemas complejos con código limpio y bien pensado.',
       ctaProjects: 'Ver proyectos',
       ctaCv: 'Descargar CV',
     },
@@ -116,7 +127,18 @@ export const dictionary: Record<Locale, Dictionary> = {
     projects: {
       eyebrow: 'Proyectos',
       title: 'Lo que construí',
-      viewCode: 'Ver código',
+      viewDetails: 'Ver más detalles',
+      close: 'Cerrar',
+      problem: 'El problema',
+      role: 'Mi rol',
+      architecture: 'Arquitectura',
+      challenges: 'Desafíos técnicos',
+      decisions: 'Decisiones de diseño',
+      learnings: 'Qué aprendí',
+      runDemo: 'Ejecutar flujo',
+      demoTitle: 'Demo interactiva de la API',
+      consoleDemoTitle: 'Demo interactiva de consola',
+      diagramTitle: 'Diagrama de arquitectura',
     },
     experience: {
       eyebrow: 'Experiencia',
@@ -169,7 +191,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     hero: {
       role: 'Backend / Full Stack Developer',
       pitch:
-        'Advanced Information Systems Engineering student (UTN-FRBA), looking for my first opportunity as a developer. I enjoy solving complex problems with clean, well-thought-out code.',
+        'Advanced Information Systems Engineering student (UTN-FRBA), focused on backend development with Java/Spring Boot and Node.js. Looking for my first opportunity as a Backend or Full Stack developer, eager to keep solving complex problems with clean, well-thought-out code.',
       ctaProjects: 'View projects',
       ctaCv: 'Download CV',
     },
@@ -198,7 +220,18 @@ export const dictionary: Record<Locale, Dictionary> = {
     projects: {
       eyebrow: 'Projects',
       title: "What I've built",
-      viewCode: 'View code',
+      viewDetails: 'View more details',
+      close: 'Close',
+      problem: 'The problem',
+      role: 'My role',
+      architecture: 'Architecture',
+      challenges: 'Technical challenges',
+      decisions: 'Design decisions',
+      learnings: 'What I learned',
+      runDemo: 'Run flow',
+      demoTitle: 'Interactive API demo',
+      consoleDemoTitle: 'Interactive console demo',
+      diagramTitle: 'Architecture diagram',
     },
     experience: {
       eyebrow: 'Experience',

@@ -1,18 +1,20 @@
-import { Binary, Cpu, ExternalLink, Users, UtensilsCrossed } from 'lucide-react'
+import { useState } from 'react'
+import { Binary, Cpu, UtensilsCrossed } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { useLanguage } from '@/hooks/useLanguage'
-import { projects, type ProjectIcon } from '@/data/projects'
+import { projects, type Project, type ProjectIcon } from '@/data/projects'
+import { ProjectModal } from './ProjectModal'
 
 const PROJECT_ICONS: Record<ProjectIcon, typeof Cpu> = {
   restaurant: UtensilsCrossed,
   os: Cpu,
-  simulation: Users,
   automata: Binary,
 }
 
 export function Projects() {
   const { locale, t } = useLanguage()
+  const [selected, setSelected] = useState<Project | null>(null)
 
   return (
     <section id="projects" className="mx-auto max-w-5xl scroll-mt-16 px-4 py-24 sm:px-6">
@@ -43,6 +45,17 @@ export function Projects() {
                     {project.description[locale]}
                   </p>
 
+                  {project.metrics && (
+                    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
+                      {project.metrics.map((metric) => (
+                        <span key={metric.label[locale]} className="text-sm">
+                          <span className="font-semibold">{metric.value}</span>{' '}
+                          <span className="text-fg-muted">{metric.label[locale]}</span>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <li
@@ -54,16 +67,13 @@ export function Projects() {
                     ))}
                   </ul>
 
-                  {project.repoUrl && (
+                  {project.details && (
                     <Button
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       variant="secondary"
                       className="mt-5 self-start"
+                      onClick={() => setSelected(project)}
                     >
-                      {t.projects.viewCode}
-                      <ExternalLink className="size-4" aria-hidden />
+                      {t.projects.viewDetails}
                     </Button>
                   )}
                 </div>
@@ -72,6 +82,8 @@ export function Projects() {
           })}
         </div>
       </FadeIn>
+
+      <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </section>
   )
 }
